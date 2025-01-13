@@ -10,7 +10,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 20px;
   padding-top: 12px;
 }
 
@@ -23,6 +22,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  color: #212121;
 }
 
 .card__like-button {
@@ -47,5 +47,7 @@
 
   .card__title {
     max-width: 265px;
+    font-size: 16px;
+    line-height: 1;
   }
 }
