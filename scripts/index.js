@@ -49,7 +49,9 @@ const profileDescription = document.querySelector(".profile__description");
 
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editFormElement = document.forms["profile-form"];
-const modalCloseButton = editProfileModal.querySelector(".modal__close-button");
+const profileEditCloseButton = editProfileModal.querySelector(
+  ".modal__close-button"
+);
 const editModalNameInput = editProfileModal.querySelector(
   "#profile-name-input"
 );
@@ -57,14 +59,18 @@ const editModalDescriptionInput = editProfileModal.querySelector(
   "#profile-description-input"
 );
 
-function openModal() {
-  editModalNameInput.value = profileName.textContent;
-  editModalDescriptionInput.value = profileDescription.textContent;
-  editProfileModal.classList.add("modal_opened");
+const profileAddModal = document.querySelector("#add-card-modal");
+const profileAddButton = document.querySelector(".profile__add-button");
+const profileAddCloseButton = profileAddModal.querySelector(
+  ".modal__close-button"
+);
+
+function openModal(modal) {
+  modal.classList.add("modal_opened");
 }
 
-function closeModal() {
-  editProfileModal.classList.remove("modal_opened");
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
 }
 
 function handleEditFormSubmit(evt) {
@@ -74,13 +80,27 @@ function handleEditFormSubmit(evt) {
   closeModal();
 }
 
-profileEditButton.addEventListener("click", openModal);
+profileEditButton.addEventListener("click", () => {
+  editModalNameInput.value = profileName.textContent;
+  editModalDescriptionInput.value = profileDescription.textContent;
+  openModal(editProfileModal);
+});
 
-modalCloseButton.addEventListener("click", closeModal);
+profileEditCloseButton.addEventListener("click", () => {
+  closeModal(editProfileModal);
+});
+
+profileAddButton.addEventListener("click", () => {
+  openModal(profileAddModal);
+});
+
+profileAddCloseButton.addEventListener("click", () => {
+  closeModal(profileAddModal);
+});
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 
-for (let i = 0; i < initialCards.length; i++) {
-  const cardElement = getCardElement(initialCards[i]);
+initialCards.forEach((item) => {
+  const cardElement = getCardElement(item);
   cardsList.append(cardElement);
-}
+});
