@@ -120,6 +120,8 @@ function handleAddCardSubmit(evt) {
   };
   const cardElement = getCardElement(cardInputValues);
   cardsList.prepend(cardElement);
+  cardNameInput.value = "";
+  cardLinkInput.value = "";
   closeModal(profileAddModal);
 }
 
