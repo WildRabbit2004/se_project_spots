@@ -108,6 +108,10 @@
   border-radius: 8px;
 }
 
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
+}
+
 .modal__submit-button {
   width: 156px;
   padding: 18px 0;
