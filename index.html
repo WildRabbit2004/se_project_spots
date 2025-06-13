@@ -73,6 +73,7 @@
                 minlength="2"
                 maxlength="40"
               />
+              <span class="profile-name-input-error"></span>
             </label>
             <label for="profile-description-input" class="modal__label">
               Description
@@ -85,8 +86,14 @@
                 minlength="2"
                 maxlength="400"
               />
+              <span class="profile-description-input-error"></span>
             </label>
-            <button type="submit" class="modal__submit-button">Save</button>
+            <button
+              type="submit"
+              class="modal__submit-button modal__submit-button_inactive"
+            >
+              Save
+            </button>
           </form>
         </div>
       </div>
@@ -107,6 +114,7 @@
                 placeholder="Paste a link to the picture"
                 name="link"
               />
+              <span class="add-card-link-input-error"></span>
             </label>
             <label for="add-card-name-input" class="modal__label">
               Caption
@@ -120,8 +128,14 @@
                 minlength="2"
                 maxlength="30"
               />
+              <span class="add-card-name-input-error"></span>
             </label>
-            <button type="submit" class="modal__submit-button">Save</button>
+            <button
+              type="submit"
+              class="modal__submit-button modal__submit-button_inactive"
+            >
+              Save
+            </button>
           </form>
         </div>
       </div>
@@ -139,6 +153,6 @@
       </div>
     </div>
     <script defer src="./scripts/index.js"></script>
-    <script defer src=""></script>
+    <script defer src="./scripts/validation.js"></script>
   </body>
 </html>

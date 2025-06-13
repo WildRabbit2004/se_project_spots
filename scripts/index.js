@@ -29,6 +29,16 @@ const initialCards = [
   },
 ];
 
+const modals = document.querySelectorAll(".modal");
+
+modals.forEach((modal) => {
+  modal.addEventListener("click", (evt) => {
+    if (evt.target === modal) {
+      closeModal(modal);
+    }
+  });
+});
+
 const cardPreview = document.querySelector("#preview-modal");
 const cardPreviewCaption = cardPreview.querySelector(".modal__caption");
 const previewImage = cardPreview.querySelector(".modal__image");
@@ -97,12 +107,24 @@ const profileAddCloseButton = profileAddModal.querySelector(
 const cardNameInput = profileAddModal.querySelector("#add-card-name-input");
 const cardLinkInput = profileAddModal.querySelector("#add-card-link-input");
 
+let currentModal = null;
+
+function onKeyDown(evt) {
+  if (evt.key === "Escape" && currentModal) {
+    closeModal(currentModal);
+  }
+}
+
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  currentModal = modal;
+  document.addEventListener("keydown", onKeyDown);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  currentModal = null;
+  document.removeEventListener("keydown", onKeyDown);
 }
 
 function handleEditFormSubmit(evt) {

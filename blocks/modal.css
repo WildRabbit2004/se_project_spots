@@ -121,6 +121,12 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 1;
+  pointer-events: all;
+}
+
+.modal__submit-button_inactive {
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .modal__input:hover {
