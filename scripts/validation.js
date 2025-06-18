@@ -45,16 +45,9 @@ const setEventListeners = (formElement) => {
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
+      checkInputValidity(formElement, inputElement);
       toggleButtonState(inputList, buttonElement);
     });
-
-    if (!isProfileForm) {
-      inputElement.addEventListener("blur", function () {
-        if (!inputElement.validity.valid) {
-          inputElement.reportValidity();
-        }
-      });
-    }
   });
 };
 
@@ -63,10 +56,7 @@ const enableValidation = () => {
   formList.forEach((formElement) => {
     const isProfileForm = formElement.id === "profile-form";
     formElement.addEventListener("submit", function (evt) {
-      if (!isProfileForm && !formElement.checkValidity()) {
-        evt.preventDefault();
-        formElement.reportValidity();
-      }
+      evt.preventDefault();
     });
 
     setEventListeners(formElement);

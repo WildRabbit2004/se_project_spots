@@ -84,7 +84,7 @@
                 class="modal__input"
                 placeholder="Describe yourself"
                 minlength="2"
-                maxlength="400"
+                maxlength="200"
               />
               <span class="profile-description-input-error"></span>
             </label>
@@ -103,7 +103,12 @@
             <img src="./images/close-icon.svg" alt="X symbol" />
           </button>
           <h2 class="modal__title">New Post</h2>
-          <form name="add-card" class="modal__form" id="add-card-form">
+          <form
+            name="add-card"
+            class="modal__form"
+            id="add-card-form"
+            novalidate
+          >
             <label for="add-card-link-input" class="modal__label">
               Image link
               <input
@@ -147,7 +152,7 @@
           >
             <img src="./images/close-icon_preview.svg" alt="X symbol" />
           </button>
-          <img src="" alt="" class="modal__image" />
+          <img alt="" class="modal__image" />
           <p class="modal__caption"></p>
         </div>
       </div>
