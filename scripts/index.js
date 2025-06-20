@@ -125,28 +125,8 @@ function handleAddCardSubmit(evt) {
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
-
-  const form = editFormElement;
-  const inputs = [editModalNameInput, editModalDescriptionInput];
-
-  inputs.forEach((input) => {
-    input.classList.remove("modal__input_type_error");
-    const errorElement = form.querySelector(`.${input.id}-error`);
-    if (errorElement) {
-      errorElement.textContent = "";
-      errorElement.classList.remove("modal__error_visible");
-    }
-  });
-
-  const inputList = Array.from(
-    editFormElement.querySelectorAll(settings.inputSelector)
-  );
-  const buttonElement = editFormElement.querySelector(
-    settings.submitButtonSelector
-  );
-
-  toggleButtonState(inputList, buttonElement);
   openModal(editProfileModal);
+  resetValidation(editFormElement, settings);
 });
 
 profileEditCloseButton.addEventListener("click", () => {
@@ -154,18 +134,6 @@ profileEditCloseButton.addEventListener("click", () => {
 });
 
 profileAddButton.addEventListener("click", () => {
-  cardFormElement.reset();
-
-  const inputs = [cardNameInput, cardLinkInput];
-  inputs.forEach((input) => {
-    input.classList.remove("modal__input_type_error");
-    const errorElement = cardFormElement.querySelector(`.${input.id}-error`);
-    if (errorElement) {
-      errorElement.textContent = "";
-      errorElement.classList.remove("modal__error_visible");
-    }
-  });
-
   openModal(profileAddModal);
 });
 
