@@ -1,3 +1,5 @@
+import { enableValidation, settings } from "./validation.js";
+
 const modals = document.querySelectorAll(".modal");
 
 modals.forEach((modal) => {
@@ -152,3 +154,5 @@ initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardsList.append(cardElement);
 });
+
+enableValidation(settings);
