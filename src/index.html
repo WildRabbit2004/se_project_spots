@@ -12,29 +12,29 @@
   <body>
     <div class="page">
       <header class="header">
-        <img src="./images/logo.svg" alt="Spots logo" class="header__logo" />
+        <img alt="Spots logo" class="header__logo" />
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="./images/avatar.jpg"
-            alt="Current user avatar"
-            class="profile__avatar"
-          />
+          <div class="profile__avatar-container">
+            <button class="profile__avatar-button">
+              <img
+                alt="Pencil Icon"
+                src="./images/pencil-light.svg"
+                class="profile__pencil-icon"
+              />
+            </button>
+            <img alt="Current user avatar" class="profile__avatar" />
+          </div>
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
             <button type="button" class="profile__edit-button">
-              <img src="./images/edit-profile-icon.svg" alt="Pencil icon" />Edit
-              Profile
+              <img alt="Pencil icon" />Edit Profile
             </button>
           </div>
           <button type="button" class="profile__add-button">
-            <img
-              src="./images/plus-icon.svg"
-              alt="Plus icon"
-              class="profile__add-button-icon"
-            />New Post
+            <img alt="Plus icon" class="profile__add-button-icon" />New Post
           </button>
         </section>
         <section class="cards page__section">
@@ -42,7 +42,7 @@
             <template id="card-template"
               ><li class="card">
                 <button type="button" class="card__trash-button"></button>
-                <img src="" alt="" class="card__image" />
+                <img alt="" class="card__image" />
                 <div class="card__content">
                   <h2 class="card__title"></h2>
                   <button type="button" class="card__like-button"></button>
@@ -57,7 +57,7 @@
       <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
           <button type="button" class="modal__close-button">
-            <img src="./images/close-icon.svg" alt="X symbol" />
+            <img alt="X symbol" />
           </button>
           <h2 class="modal__title">Edit profile</h2>
           <form name="edit-profile" class="modal__form" id="profile-form">
@@ -99,7 +99,7 @@
       <div class="modal" id="add-card-modal">
         <div class="modal__container">
           <button type="button" class="modal__close-button">
-            <img src="./images/close-icon.svg" alt="X symbol" />
+            <img alt="X symbol" />
           </button>
           <h2 class="modal__title">New Post</h2>
           <form
@@ -149,7 +149,7 @@
             type="button"
             class="modal__close-button modal__close-button_type_preview"
           >
-            <img src="./images/close-icon_preview.svg" alt="X symbol" />
+            <img alt="X symbol" />
           </button>
           <img alt="" class="modal__image" />
           <p class="modal__caption"></p>

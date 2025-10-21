@@ -76,7 +76,7 @@ const setEventListeners = (formElement, settings) => {
   });
 };
 
-const resetValidation = (formElement, settings) => {
+export const resetValidation = (formElement, settings) => {
   const inputList = Array.from(
     formElement.querySelectorAll(settings.inputSelector)
   );

@@ -1,5 +1,52 @@
 import "./index.css";
-import { enableValidation, settings } from "../scripts/validation.js";
+import {
+  enableValidation,
+  resetValidation,
+  settings,
+} from "../scripts/validation.js";
+import { initialCards } from "../scripts/cards.js";
+import avatarImage from "../images/avatar.jpg";
+import logoImage from "../images/logo.svg";
+import editIcon from "../images/edit-profile-icon.svg";
+import plusIcon from "../images/plus-icon.svg";
+import closeIcon from "../images/close-icon.svg";
+import closePreviewIcon from "../images/close-icon_preview.svg";
+import Api from "../utils/Api.js";
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "6ed89521-55e0-4da1-97ae-409c7e51de20",
+    "Content-Type": "application/json",
+  },
+});
+
+api
+  .getAppInfo()
+  .then(([cards, userInfo]) => {
+    cards.forEach((item) => {
+      const cardElement = getCardElement(item);
+      cardsList.append(cardElement);
+    });
+
+    document.querySelector(".profile__avatar").src = userInfo.avatar;
+    profileName.textContent = userInfo.name;
+    profileDescription.textContent = userInfo.about;
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
+document.querySelector(".profile__avatar").src = avatarImage;
+document.querySelector(".header__logo").src = logoImage;
+document.querySelector(".profile__edit-button img").src = editIcon;
+document.querySelector(".profile__add-button img").src = plusIcon;
+document.querySelector("#edit-profile-modal .modal__close-button img").src =
+  closeIcon;
+document.querySelector("#add-card-modal .modal__close-button img").src =
+  closeIcon;
+document.querySelector(".modal__close-button_type_preview img").src =
+  closePreviewIcon;
 
 const modals = document.querySelectorAll(".modal");
 
@@ -107,9 +154,17 @@ function closeModal(modal) {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
-  profileName.textContent = editModalNameInput.value;
-  profileDescription.textContent = editModalDescriptionInput.value;
-  closeModal(editProfileModal);
+  api
+    .editUserInfo({
+      name: editModalNameInput.value,
+      about: editModalDescriptionInput.value,
+    })
+    .then((data) => {
+      profileName.textContent = data.name;
+      profileDescription.textContent = data.about;
+      closeModal(editProfileModal);
+    })
+    .catch(console.error);
 }
 
 function handleAddCardSubmit(evt) {
@@ -150,10 +205,5 @@ cardPreviewClose.addEventListener("click", () => {
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardFormElement.addEventListener("submit", handleAddCardSubmit);
-
-initialCards.forEach((item) => {
-  const cardElement = getCardElement(item);
-  cardsList.append(cardElement);
-});
 
 enableValidation(settings);
