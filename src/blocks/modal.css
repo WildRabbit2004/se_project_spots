@@ -12,12 +12,24 @@
   padding: 0 20px;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0.3s, opacity 0.3s ease-in;
+  transition:
+    visibility 0.3s,
+    opacity 0.3s ease-in;
+}
+
+.modal__form_type_delete {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .modal_opened {
   visibility: visible;
-  transition: visibility 0.3s, opacity 0.3s ease-out;
+  transition:
+    visibility 0.3s,
+    opacity 0.3s ease-out;
   opacity: 1;
 }
 
@@ -29,6 +41,20 @@
   box-sizing: border-box;
   position: relative;
   border-radius: 8px;
+}
+
+.modal__inner {
+  position: relative;
+  width: 100%;
+  max-width: 630px;
+  box-sizing: border-box;
+}
+
+.modal__container_type_delete {
+  width: 100%;
+  height: 172px;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 .modal__image-container {
@@ -87,6 +113,11 @@
   font-weight: 500;
 }
 
+.modal__title_type_delete {
+  font-size: 24px;
+  text-align: center;
+}
+
 .modal__label {
   display: flex;
   flex-direction: column;
@@ -130,6 +161,28 @@
   border: none;
 }
 
+.modal__submit-button_type_delete {
+  background-color: #ff6565;
+  color: #212121;
+  border: none;
+  width: 156px;
+  height: 52px;
+}
+
+.modal__cancel-button {
+  width: 156px;
+  height: 52px;
+  padding: 18px 0;
+  background-color: transparent;
+  border-radius: 8px;
+  color: #212121;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  pointer-events: all;
+  border: 1px solid #212121;
+}
+
 .modal__submit-button_inactive {
   pointer-events: none;
   opacity: 0.5;
@@ -154,6 +207,11 @@
   cursor: pointer;
 }
 
+.modal__cancel-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 627px) {
   .modal {
     padding: 0 10px;
@@ -161,6 +219,18 @@
 
   .modal__container {
     padding: 12px;
+  }
+
+  .modal__container_type_delete {
+    width: 100%;
+    height: auto;
+    padding: 12px;
+  }
+
+  .modal__form_type_delete {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
   }
 
   .modal_type_preview {
@@ -180,7 +250,11 @@
 
   .modal__title {
     font-size: 20px;
-    margin: 10px 0 34px;
+    margin: 12px 0 34px;
+  }
+
+  .modal__title_type_delete {
+    margin: 10px 0 20px;
   }
 
   .modal__close-button {
@@ -199,5 +273,15 @@
 
   .modal__submit-button {
     width: 100%;
+  }
+
+  .modal__submit-button_type_delete {
+    width: 100%;
+    max-width: 156px;
+  }
+
+  .modal__cancel-button {
+    width: 100%;
+    max-width: 156px;
   }
 }
