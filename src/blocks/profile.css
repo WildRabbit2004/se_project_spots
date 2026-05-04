@@ -6,10 +6,10 @@
 
 .profile__avatar-container {
   position: relative;
+  margin-right: 20px;
 }
 
 .profile__avatar {
-  margin-right: 20px;
   border-radius: 8px;
   object-fit: cover;
   width: 190px;
@@ -23,10 +23,15 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  visibility: hidden;
 }
 
 .profile__avatar-button::after {
   content: "Edit Avatar";
+}
+
+.profile__avatar-container:hover .profile__avatar-button {
+  visibility: visible;
 }
 
 .profile__column {
@@ -121,6 +126,14 @@
     align-items: center;
     text-align: center;
     padding-top: 20px;
+  }
+
+  .profile__avatar-button {
+    visibility: visible;
+  }
+
+  .profile__avatar-button::after {
+    content: "";
   }
 
   .profile__avatar {
