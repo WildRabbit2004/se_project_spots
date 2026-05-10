@@ -25,3 +25,7 @@ This webpage is deployed to GitHub Pages
 - [Deployment Link](https://wildrabbit2004.github.io/se_project_spots/)
 
 Take a look at the [Presentation Pitch](https://drive.google.com/file/d/1HvHkuVcKYZDraby-BuxxnYnxDOKbRf6_/view?usp=sharing) for this project, where I describe the twists and turns of the creation process!
+
+- ## 📽️ Project Demo
+  [Demo Link](https://youtu.be/3_nQfkWrlx8)
+  
