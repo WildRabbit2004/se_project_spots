@@ -16,8 +16,6 @@ Spots is an open-space platform where users can upload photos that they've taken
 
 Spots has a wide range of device inclusion, from the smallest 320 pixel screens to the biggest 4K screens.
 
-![Profile Page](./images/demo/preview.png)
-
 ## Deployment
 
 This webpage is deployed to GitHub Pages
