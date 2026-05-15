@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,29 +12,28 @@
   <body>
     <div class="page">
       <header class="header">
-        <img src="./images/logo.svg" alt="Spots logo" class="header__logo" />
+        <img alt="Spots logo" class="header__logo" />
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="./images/avatar.jpg"
-            alt="Current user avatar"
-            class="profile__avatar"
-          />
+          <div class="profile__avatar-container">
+            <img alt="Current user avatar" class="profile__avatar" src="" />
+            <button class="profile__avatar-button" type="button">
+              <img
+                alt="Pencil Icon"
+                src="<%=require('./images/edit-profile-icon-light.svg')%>"
+              />
+            </button>
+          </div>
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
             <button type="button" class="profile__edit-button">
-              <img src="./images/edit-profile-icon.svg" alt="Pencil icon" />Edit
-              Profile
+              <img alt="Pencil icon" />Edit Profile
             </button>
           </div>
           <button type="button" class="profile__add-button">
-            <img
-              src="./images/plus-icon.svg"
-              alt="Plus icon"
-              class="profile__add-button-icon"
-            />New Post
+            <img alt="Plus icon" class="profile__add-button-icon" />New Post
           </button>
         </section>
         <section class="cards page__section">
@@ -42,7 +41,7 @@
             <template id="card-template"
               ><li class="card">
                 <button type="button" class="card__trash-button"></button>
-                <img src="" alt="" class="card__image" />
+                <img alt="" class="card__image" />
                 <div class="card__content">
                   <h2 class="card__title"></h2>
                   <button type="button" class="card__like-button"></button>
@@ -57,10 +56,15 @@
       <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
           <button type="button" class="modal__close-button">
-            <img src="./images/close-icon.svg" alt="X symbol" />
+            <img alt="X symbol" />
           </button>
           <h2 class="modal__title">Edit profile</h2>
-          <form name="edit-profile" class="modal__form" id="profile-form">
+          <form
+            name="edit-profile"
+            class="modal__form"
+            id="profile-form"
+            novalidate
+          >
             <label for="profile-name-input" class="modal__label">
               Name
               <input
@@ -99,7 +103,7 @@
       <div class="modal" id="add-card-modal">
         <div class="modal__container">
           <button type="button" class="modal__close-button">
-            <img src="./images/close-icon.svg" alt="X symbol" />
+            <img alt="X symbol" />
           </button>
           <h2 class="modal__title">New Post</h2>
           <form
@@ -149,10 +153,73 @@
             type="button"
             class="modal__close-button modal__close-button_type_preview"
           >
-            <img src="./images/close-icon_preview.svg" alt="X symbol" />
+            <img alt="X symbol" />
           </button>
           <img alt="" class="modal__image" />
           <p class="modal__caption"></p>
+        </div>
+      </div>
+      <div class="modal" id="avatar-modal">
+        <div class="modal__container">
+          <button type="button" class="modal__close-button">
+            <img alt="X symbol" />
+          </button>
+          <h2 class="modal__title">Edit avatar</h2>
+          <form
+            name="edit-avatar"
+            class="modal__form"
+            id="avatar-form"
+            novalidate
+          >
+            <label for="profile-avatar-input" class="modal__label">
+              Avatar
+              <input
+                required
+                id="profile-avatar-input"
+                type="url"
+                class="modal__input"
+                placeholder="Insert your avatar"
+                name="avatar"
+              />
+              <span class="profile-avatar-input-error"></span>
+            </label>
+            <button
+              type="submit"
+              class="modal__submit-button modal__submit-button_inactive"
+            >
+              Save
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal" id="delete-modal">
+        <div class="modal__inner">
+          <button
+            type="button"
+            class="modal__close-button modal__close-button_type_preview"
+          >
+            <img alt="X symbol" src="" />
+          </button>
+          <div class="modal__container modal__container_type_delete">
+            <h2 class="modal__title modal__title_type_delete">
+              Are you sure you want to delete this image?
+            </h2>
+            <form
+              name="delete-card-form"
+              class="modal__form modal__form_type_delete"
+              id="delete-form"
+              novalidate
+            >
+              <button
+                type="submit"
+                class="modal__submit-button modal__submit-button_type_delete"
+              >
+                Delete
+              </button>
+              <button type="button" class="modal__cancel-button">Cancel</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
